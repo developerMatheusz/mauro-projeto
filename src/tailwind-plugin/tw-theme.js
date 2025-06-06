@@ -44,7 +44,6 @@ const getVars = (groups) => {
 };
 
 const defaultVars = getVars(defaultColorGroups);
-const darkVars = getVars(darkColorGroups);
 
 const baseSize = Number(themeConfig.fonts.font_size.base);
 const scale = Number(themeConfig.fonts.font_size.scale);
@@ -85,8 +84,7 @@ module.exports = plugin.withOptions(() => {
   return function ({ addBase, addUtilities, matchUtilities }) {
     // Default vars on :root; dark vars on .dark
     addBase({
-      ":root": baseVars,
-      ".dark": darkVars,
+      ":root": baseVars
     });
 
     const fontUtils = {};
