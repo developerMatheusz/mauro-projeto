@@ -1,24 +1,20 @@
 {
   "main": [
     {
-      "name": "Home",
+      "name": "Início",
       "url": "/"
     },
     {
-      "name": "About",
+      "name": "Sobre nós",
       "url": "/about"
     },
     {
-      "name": "Elements",
-      "url": "/elements"
-    },
-    {
-      "name": "Pages",
+      "name": "Páginas",
       "url": "",
       "hasChildren": true,
       "children": [
         {
-          "name": "Contact",
+          "name": "Contato",
           "url": "/contact"
         },
         {
@@ -26,31 +22,19 @@
           "url": "/blog"
         },
         {
-          "name": "Authors",
-          "url": "/authors"
-        },
-        {
-          "name": "Categories",
+          "name": "Categoria",
           "url": "/categories"
-        },
-        {
-          "name": "Tags",
-          "url": "/tags"
-        },
-        {
-          "name": "404 Page",
-          "url": "/404"
         }
       ]
     }
   ],
   "footer": [
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "Cursos",
+      "url": "/course"
     },
     {
-      "name": "Privacy Policy",
+      "name": "Política de Privacidade",
       "url": "/privacy-policy"
     }
   ]

@@ -7,12 +7,10 @@ import SearchResult, { type ISearchItem } from "./SearchResult";
 const SearchModal = () => {
   const [searchString, setSearchString] = useState("");
 
-  // handle input change
   const handleSearch = (e: React.FormEvent<HTMLInputElement>) => {
     setSearchString(e.currentTarget.value.replace("\\", "").toLowerCase());
   };
 
-  // generate search result
   const doSearch = (searchData: ISearchItem[]) => {
     const regex = new RegExp(`${searchString}`, "gi");
     if (searchString === "") {
@@ -41,13 +39,11 @@ const SearchModal = () => {
     }
   };
 
-  // get search result
   const startTime = performance.now();
   const searchResult = doSearch(searchData);
   const endTime = performance.now();
   const totalTime = ((endTime - startTime) / 1000).toFixed(3);
 
-  // search dom manipulation
   useEffect(() => {
     const searchModal = document.getElementById("searchModal");
     const searchInput = document.getElementById("searchInput");
@@ -57,7 +53,6 @@ const SearchModal = () => {
       "[data-search-trigger]",
     );
 
-    // search modal open
     searchModalTriggers.forEach((button) => {
       button.addEventListener("click", function () {
         const searchModal = document.getElementById("searchModal");
@@ -66,12 +61,10 @@ const SearchModal = () => {
       });
     });
 
-    // search modal close
     searchModalOverlay!.addEventListener("click", function () {
       searchModal!.classList.remove("show");
     });
 
-    // keyboard navigation
     let selectedIndex = -1;
 
     const updateSelection = () => {

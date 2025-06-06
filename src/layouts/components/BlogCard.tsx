@@ -21,7 +21,7 @@ const BlogCard = ({ data }: { data: Post }) => {
         />
       )}
       <h4 className="mb-3">
-        <Link href={`/${blog_folder}/${data.slug}`}>{title}</Link>
+        <Link href={`/${blog_folder}/${data.slug}`} className="text-[#035373]">{title}</Link>
       </h4>
       <ul className="mb-4">
         <li className="mr-4 inline-block">
@@ -45,10 +45,10 @@ const BlogCard = ({ data }: { data: Post }) => {
         {plainify(data.content!.slice(0, Number(summary_length)))}
       </p>
       <Link
-        className="btn btn-outline-primary btn-sm"
+        className="btn border border-[#035373] hover:bg-[#035373] hover:text-[white] text-[#035373] btn-sm"
         href={`/${blog_folder}/${data.slug}`}
       >
-        read more
+        Leia mais
       </Link>
     </div>
   );

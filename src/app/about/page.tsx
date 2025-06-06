@@ -33,7 +33,7 @@ const About = () => {
               )}
               <h2
                 dangerouslySetInnerHTML={markdownify(title)}
-                className="h3 mb-6"
+                className="h3 mb-6 text-[#035373]"
               />
               <div className="content">
                 <MDXContent content={content} />

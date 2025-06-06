@@ -29,16 +29,16 @@ const Home = () => {
           <div className="row justify-center">
             <div className="lg:col-7 md:col-9 mb-8 text-center">
               <h1
-                className="mb-4 text-h3 lg:text-h1"
+                className="mb-4 text-h3 lg:text-h1 text-[#035373]"
                 dangerouslySetInnerHTML={markdownify(banner.title)}
               />
               <p
-                className="mb-8"
+                className="mb-8 text-[#0D0D0D]"
                 dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
               />
               {banner.button!.enable && (
                 <Link
-                  className="btn btn-primary"
+                  className="btn bg-[#035373] text-white"
                   href={banner.button!.link}
                   target={
                     banner.button!.link.startsWith("http") ? "_blank" : "_self"
@@ -54,8 +54,8 @@ const Home = () => {
                 <ImageFallback
                   src={banner.image}
                   className="mx-auto"
-                  width="800"
-                  height="420"
+                  width="500"
+                  height="120"
                   alt="banner image"
                   priority
                 />
@@ -68,7 +68,7 @@ const Home = () => {
       {features.map((feature, index: number) => (
         <section
           key={index}
-          className={`section-sm ${index % 2 === 0 && "bg-gradient"}`}
+          className={`section-sm ${index % 2 === 0 && "bg-[#F2A950]"}`}
         >
           <div className="container">
             <div className="row items-center justify-between">
@@ -90,24 +90,24 @@ const Home = () => {
                 }`}
               >
                 <h2
-                  className="mb-4"
+                  className="mb-4 text-[#035373]"
                   dangerouslySetInnerHTML={markdownify(feature.title)}
                 />
                 <p
-                  className="mb-8 text-lg"
+                  className="mb-8 text-lg text-[#035373]"
                   dangerouslySetInnerHTML={markdownify(feature.content)}
                 />
                 <ul>
                   {feature.bulletpoints.map((bullet: string) => (
                     <li className="relative mb-4 pl-6" key={bullet}>
-                      <FaCheck className={"absolute left-0 top-1.5"} />
-                      <span dangerouslySetInnerHTML={markdownify(bullet)} />
+                      <FaCheck className={"absolute left-0 top-1.5 text-[#035373]"} />
+                      <span dangerouslySetInnerHTML={markdownify(bullet)} className="text-[#035373]" />
                     </li>
                   ))}
                 </ul>
                 {feature.button.enable && (
                   <Link
-                    className="btn btn-primary mt-5"
+                    className="btn bg-[#035373] text-white mt-5"
                     href={feature.button.link}
                   >
                     {feature.button.label}

@@ -26,42 +26,42 @@ const Contact = async () => {
               <form action={contact_form_action} method="POST">
                 <div className="mb-6">
                   <label htmlFor="name" className="form-label">
-                    Full Name <span className="text-red-500">*</span>
+                    Nome completo <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="name"
                     name="name"
                     className="form-input"
-                    placeholder="John Doe"
+                    placeholder="Escreva seu nome completo"
                     type="text"
                   />
                 </div>
                 <div className="mb-6">
                   <label htmlFor="email" className="form-label">
-                    Working Mail <span className="text-red-500">*</span>
+                    Email <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="email"
                     name="email"
                     className="form-input"
-                    placeholder="john.doe@email.com"
+                    placeholder="Escreva seu email"
                     type="email"
                   />
                 </div>
                 <div className="mb-6">
                   <label htmlFor="message" className="form-label">
-                    Anything else? <span className="text-red-500">*</span>
+                    Deseja escrever uma mensagem? <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    className="form-input"
-                    placeholder="Message goes here..."
+                    className="form-input resize-none"
+                    placeholder="Escreva sua mensagem aqui"
                     rows={8}
                   ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary">
-                  Submit
+                <button type="submit" className="btn bg-[#035373] text-white cursor-pointer">
+                  Enviar
                 </button>
               </form>
             </div>

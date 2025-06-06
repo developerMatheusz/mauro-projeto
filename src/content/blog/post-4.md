@@ -1,12 +1,12 @@
 ---
-title: "How to build an Application with modern Technology"
+title: "Título"
 meta_title: ""
-description: "this is meta description"
-date: 2022-04-04T05:00:00Z
+description: "Descrição do título 4"
+date: 2025-06-04T05:00:00Z
 image: "/images/image-placeholder.png"
-categories: ["Architecture"]
+categories: ["Administração", "Auxiliar Administrativo"]
 author: "John Doe"
-tags: ["silicon", "technology"]
+tags: ["Adm", "Aux. Adm"]
 draft: false
 ---
 

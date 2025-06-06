@@ -8,10 +8,8 @@ import { slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import { Author, Post } from "@/types";
 
-// remove dynamicParams
 export const dynamicParams = false;
 
-// generate static params
 export const generateStaticParams: () => { single?: string }[] = () => {
   const authors: Author[] = getSinglePage("authors");
 
@@ -55,7 +53,7 @@ const AuthorSingle = async (props: { params: Promise<{ single: string }> }) => {
                   alt={title}
                 />
               )}
-              <h1 className="h3 mb-6">{title}</h1>
+              <h1 className="h3 mb-6 text-[#035373]">{title}</h1>
               <div className="content">
                 <MDXContent content={content} />
               </div>

@@ -1,12 +1,12 @@
 ---
-title: "How to build an Application with modern Technology"
+title: "Título"
 meta_title: ""
-description: "this is meta description"
-date: 2022-04-04T05:00:00Z
+description: "Descrição do título 1"
+date: 2025-06-04T05:00:00Z
 image: "/images/image-placeholder.png"
-categories: ["Application", "Data"]
+categories: ["Administração", "Auxiliar Administrativo"]
 author: "John Doe"
-tags: ["nextjs", "tailwind"]
+tags: ["Adm", "Aux. Adm"]
 draft: false
 ---
 

@@ -2,7 +2,7 @@
 title: Sam Wilson
 email: samwilson@email.com
 image: "/images/avatar.png"
-description: this is meta description
+description: Descrição sobre o autor Sam Wilson
 social:
   - name: github
     icon: FaGithub

@@ -1,14 +1,14 @@
 {
   "site": {
-    "title": "Nextplate",
+    "title": "Academia do Conhecimento",
     "base_url": "https://nextplate.netlify.app",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
     "logo": "/images/logo.png",
-    "logo_darkmode": "/images/logo-darkmode.png",
-    "logo_width": "150",
-    "logo_height": "27",
+    "logo_darkmode": "/images/logo.png",
+    "logo_width": "80",
+    "logo_height": "80",
     "logo_text": "Nextplate"
   },
 
@@ -19,7 +19,8 @@
     "default_theme": "dark",
     "pagination": 2,
     "summary_length": 200,
-    "blog_folder": "blog"
+    "blog_folder": "blog",
+    "course_folder": "course"
   },
 
   "params": {

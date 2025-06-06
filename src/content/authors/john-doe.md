@@ -2,7 +2,7 @@
 title: John Doe
 email: johndoe@email.com
 image: "/images/avatar.png"
-description: this is meta description
+description: Descrição sobre o autor John Doe
 social:
   - name: github
     icon: FaGithub

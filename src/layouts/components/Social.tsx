@@ -22,6 +22,7 @@ const Social = ({
             href={social.link}
             target="_blank"
             rel="noopener noreferrer nofollow"
+            className="bg-[#035373]"
           >
             <span className="sr-only">{social.name}</span>
             <DynamicIcon className="inline-block" icon={social.icon} />

@@ -1,21 +1,19 @@
 "use client";
 
 import Logo from "@/components/Logo";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
+//import ThemeSwitcher from "@/components/ThemeSwitcher";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
-import { IoSearch } from "react-icons/io5";
+//import { IoSearch } from "react-icons/io5";
 
-//  child navigation link interface
 export interface IChildNavigationLink {
   name: string;
   url: string;
 }
 
-// navigation link interface
 export interface INavigationLink {
   name: string;
   url: string;
@@ -24,27 +22,22 @@ export interface INavigationLink {
 }
 
 const Header = () => {
-  // distructuring the main menu from menu object
   const { main }: { main: INavigationLink[] } = menu;
   const { navigation_button, settings } = config;
-  // get current path
   const pathname = usePathname();
 
-  // scroll to top on route change
   useEffect(() => {
     window.scroll(0, 0);
   }, [pathname]);
 
   return (
     <header
-      className={`header z-30 ${settings.sticky_header && "sticky top-0"}`}
+      className={`header z-30 ${settings.sticky_header && "sticky top-0"} shadow-md`}
     >
       <nav className="navbar container">
-        {/* logo */}
         <div className="order-0">
           <Logo />
         </div>
-        {/* navbar toggler */}
         <input id="nav-toggle" type="checkbox" className="hidden" />
         <label
           htmlFor="nav-toggle"
@@ -55,7 +48,7 @@ const Header = () => {
             className="h-6 fill-current block"
             viewBox="0 0 20 20"
           >
-            <title>Menu Open</title>
+            <title>Abrir menu</title>
             <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
           </svg>
           <svg
@@ -63,14 +56,13 @@ const Header = () => {
             className="h-6 fill-current hidden"
             viewBox="0 0 20 20"
           >
-            <title>Menu Close</title>
+            <title>Fechar menu</title>
             <polygon
               points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
               transform="rotate(45 10 10)"
             ></polygon>
           </svg>
         </label>
-        {/* /navbar toggler */}
 
         <ul
           id="nav-menu"
@@ -138,7 +130,7 @@ const Header = () => {
             </li>
           )}
         </ul>
-        <div className="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+        {/*<div className="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
           {settings.search && (
             <button
               className="border-border text-text-dark hover:text-primary dark:border-darkmode-border mr-5 inline-block border-r pr-5 text-xl dark:text-white dark:hover:text-darkmode-primary"
@@ -157,7 +149,7 @@ const Header = () => {
               {navigation_button.label}
             </Link>
           )}
-        </div>
+        </div>*/}
       </nav>
     </header>
   );

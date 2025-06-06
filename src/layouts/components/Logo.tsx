@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Logo = ({ src }: { src?: string }) => {
-  // destructuring items from config object
   const {
     logo,
     logo_darkmode,
@@ -34,7 +33,6 @@ const Logo = ({ src }: { src?: string }) => {
       : logo;
   const logoPath = src ? src : resolvedLogo;
 
-  // Convert width and height to numbers
   const width = typeof logo_width === 'string' ? parseInt((logo_width as string).replace("px", "")) : logo_width;
   const height = typeof logo_height === 'string' ? parseInt((logo_height as string).replace("px", "")) : logo_height;
 

@@ -28,7 +28,7 @@ const Testimonials = ({ data }: { data: PageData }) => {
               <div className="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-6">
                 <h2
                   dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
-                  className="mb-4"
+                  className="mb-4 text-[#035373]"
                 />
                 <p
                   dangerouslySetInnerHTML={markdownify(
@@ -60,7 +60,7 @@ const Testimonials = ({ data }: { data: PageData }) => {
                     (item: Testimonial, index: number) => (
                       <SwiperSlide key={index}>
                         <div className="rounded-lg bg-light px-7 py-10 dark:bg-darkmode-light">
-                          <div className="text-text-dark dark:text-white">
+                          <div className="text-[#F2A950] dark:text-white">
                             <svg
                               width="33"
                               height="20"
@@ -91,13 +91,13 @@ const Testimonials = ({ data }: { data: PageData }) => {
                             <div className="ml-4">
                               <h3
                                 dangerouslySetInnerHTML={markdownify(item.name)}
-                                className="h5 font-primary font-semibold"
+                                className="h5 font-primary font-semibold text-[#035373]"
                               />
                               <p
                                 dangerouslySetInnerHTML={markdownify(
                                   item.designation,
                                 )}
-                                className="text-text-dark dark:text-white"
+                                className="text-[#0D0D0D] dark:text-white"
                               />
                             </div>
                           </div>

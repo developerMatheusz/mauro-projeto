@@ -12,8 +12,8 @@ const Categories = () => {
 
   return (
     <>
-      <SeoMeta title={"Categories"} />
-      <PageHeader title={"Categories"} />
+      <SeoMeta title={"Categorias"} />
+      <PageHeader title={"Categorias"} />
       <section className="section">
         <div className="container text-center">
           <ul>
@@ -25,10 +25,10 @@ const Categories = () => {
                 <li className="m-3 inline-block" key={category}>
                   <Link
                     href={`/categories/${category}`}
-                    className="block rounded bg-light px-4 py-2 text-xl text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark"
+                    className="block rounded bg-light px-4 py-2 text-xl text-[#035373]"
                   >
                     {humanize(category)}{" "}
-                    <span className="ml-2 rounded bg-body px-2 dark:bg-darkmode-body">
+                    <span className="ml-2 rounded bg-body px-2">
                       {count}
                     </span>
                   </Link>

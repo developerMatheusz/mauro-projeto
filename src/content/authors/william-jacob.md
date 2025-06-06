@@ -2,7 +2,7 @@
 title: William Jacob
 email: williamjacob@email.com
 image: "/images/avatar.png"
-description: this is meta description
+description: Descrição sobre o William Jacob
 social:
   - name: github
     icon: FaGithub

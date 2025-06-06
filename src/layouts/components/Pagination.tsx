@@ -26,7 +26,6 @@ const Pagination = ({
           className="flex items-center justify-center space-x-3"
           aria-label="Pagination"
         >
-          {/* previous */}
           {hasPrevPage ? (
             <Link
               href={
@@ -34,9 +33,9 @@ const Pagination = ({
                   ? `${section ? "/" + section : "/"}`
                   : `${section ? "/" + section : ""}/page/${currentPage - 1}`
               }
-              className="rounded px-2 py-1.5 text-text-dark hover:bg-light dark:text-darkmode-text-dark dark:hover:bg-darkmode-light"
+              className="rounded px-2 py-1.5 text-[#035373] hover:bg-light"
             >
-              <span className="sr-only">Previous</span>
+              <span className="sr-only">Antes</span>
               <svg
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -53,7 +52,7 @@ const Pagination = ({
             </Link>
           ) : (
             <span className="rounded px-2 py-1.5 text-text-light">
-              <span className="sr-only">Previous</span>
+              <span className="sr-only">Antes</span>
               <svg
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -70,13 +69,12 @@ const Pagination = ({
             </span>
           )}
 
-          {/* page index */}
           {pageList.map((pagination, i) => (
             <React.Fragment key={`page-${i}`}>
               {pagination === currentPage ? (
                 <span
                   aria-current="page"
-                  className="rounded bg-primary px-4 py-2 text-white dark:bg-darkmode-primary dark:text-text-dark"
+                  className="rounded bg-[#035373] px-4 py-2 text-white"
                 >
                   {pagination}
                 </span>
@@ -89,7 +87,7 @@ const Pagination = ({
                   }
                   passHref
                   aria-current="page"
-                  className="rounded px-4 py-2 text-text-dark hover:bg-light dark:text-darkmode-text-dark dark:hover:bg-darkmode-light"
+                  className="rounded px-4 py-2 text-[#035373] hover:bg-light"
                 >
                   {pagination}
                 </Link>
@@ -97,13 +95,12 @@ const Pagination = ({
             </React.Fragment>
           ))}
 
-          {/* next page */}
           {hasNextPage ? (
             <Link
               href={`${section ? "/" + section : ""}/page/${currentPage + 1}`}
-              className="rounded px-2 py-1.5 text-text-dark hover:bg-light dark:text-darkmode-text-dark dark:hover:bg-darkmode-light"
+              className="rounded px-2 py-1.5 text-[#035373] hover:bg-light"
             >
-              <span className="sr-only">Next</span>
+              <span className="sr-only">Próximo</span>
               <svg
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -120,7 +117,7 @@ const Pagination = ({
             </Link>
           ) : (
             <span className="rounded px-2 py-1.5 text-text-light">
-              <span className="sr-only">Next</span>
+              <span className="sr-only">Próximo</span>
               <svg
                 viewBox="0 0 20 20"
                 fill="currentColor"

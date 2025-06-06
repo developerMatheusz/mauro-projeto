@@ -1,8 +1,8 @@
 {
-  "name": "nextplate",
-  "version": "4.2.2",
-  "description": "Nextjs and Tailwindcss boilerplate",
-  "author": "zeon.studio",
+  "name": "mauro-projeto",
+  "version": "1.0.0",
+  "description": "Projeto plataforma E-Learning",
+  "author": "matheuszanela",
   "license": "MIT",
   "packageManager": "yarn@1.22.22",
   "scripts": {

@@ -15,7 +15,7 @@ const CallToAction = ({ data }: { data: PageData }) => {
       {data.frontmatter.enable && (
         <section className="mb-28">
           <div className="container">
-            <div className="rounded-xl bg-light px-4 py-16 dark:bg-darkmode-light xl:p-20">
+            <div className="rounded-xl px-4 py-16 dark:bg-darkmode-light xl:p-20 bg-[#F2A950]">
               <div className="row items-center justify-between">
                 <div className="mb-10 md:col-5 lg:col-4 md:order-2 md:mb-0">
                   <ImageFallback
@@ -31,17 +31,17 @@ const CallToAction = ({ data }: { data: PageData }) => {
                     dangerouslySetInnerHTML={markdownify(
                       data.frontmatter.title,
                     )}
-                    className="mb-2"
+                    className="mb-2 text-[#035373]"
                   />
                   <p
                     dangerouslySetInnerHTML={markdownify(
                       data.frontmatter.description,
                     )}
-                    className="mb-6"
+                    className="mb-6 text-[#035373]"
                   />
                   {data.frontmatter.button.enable && (
                     <Link
-                      className="btn btn-primary"
+                      className="btn bg-[#035373] text-white"
                       href={data.frontmatter.button.link}
                     >
                       {data.frontmatter.button.label}

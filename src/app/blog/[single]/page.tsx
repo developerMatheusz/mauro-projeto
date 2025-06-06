@@ -1,5 +1,4 @@
 import BlogCard from "@/components/BlogCard";
-import Disqus from "@/components/Disqus";
 import Share from "@/components/Share";
 import config from "@/config/config.json";
 import ImageFallback from "@/helpers/ImageFallback";
@@ -15,10 +14,8 @@ import { FaRegClock, FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 
 const { blog_folder } = config.settings;
 
-// remove dynamicParams
 export const dynamicParams = false;
 
-// generate static params
 export const generateStaticParams: () => { single: string }[] = () => {
   const posts: Post[] = getSinglePage(blog_folder);
 
@@ -72,7 +69,7 @@ const PostSingle = async (props: { params: Promise<{ single: string }> }) => {
               )}
               <h1
                 dangerouslySetInnerHTML={markdownify(title)}
-                className="h2 mb-4"
+                className="h2 mb-4 text-[#035373]"
               />
               <ul className="mb-4">
                 <li className="mr-4 inline-block">
@@ -105,12 +102,12 @@ const PostSingle = async (props: { params: Promise<{ single: string }> }) => {
               </div>
               <div className="row items-start justify-between">
                 <div className="mb-10 flex items-center lg:col-5 lg:mb-0">
-                  <h5 className="mr-3">Tags :</h5>
+                  <h5 className="mr-3 text-[#035373]">Tags:</h5>
                   <ul>
                     {tags?.map((tag: string) => (
                       <li key={tag} className="inline-block">
                         <Link
-                          className="m-1 block rounded bg-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark"
+                          className="m-1 block rounded bg-light px-3 py-1 hover:bg-[#035373] hover:text-white"
                           href={`/tags/${slugify(tag)}`}
                         >
                           {humanize(tag)}
@@ -119,8 +116,8 @@ const PostSingle = async (props: { params: Promise<{ single: string }> }) => {
                     ))}
                   </ul>
                 </div>
-                <div className="flex items-center lg:col-4">
-                  <h5 className="mr-3">Share :</h5>
+                <div className="flex flex-col items-start gap-2 lg:col-4">
+                  <h5 className="mr-3 text-[#035373]">Compartilhar:</h5>
                   <Share
                     className="social-icons"
                     title={title}
@@ -129,13 +126,11 @@ const PostSingle = async (props: { params: Promise<{ single: string }> }) => {
                   />
                 </div>
               </div>
-              <Disqus className="mt-20" />
             </article>
           </div>
 
-          {/* <!-- Related posts --> */}
           <div className="section pb-0">
-            <h2 className="h3 mb-12 text-center">Related Posts</h2>
+            <h2 className="h3 mb-12 text-center text-[#035373]">Posts Relacionados</h2>
             <div className="row justify-center">
               {similarPosts.map((post) => (
                 <div key={post.slug} className="lg:col-4 md:col-6 mb-14">

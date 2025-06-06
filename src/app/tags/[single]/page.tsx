@@ -12,10 +12,8 @@ import { Post } from "@/types";
 const { blog_folder } = config.settings;
 type StaticParams = () => { single: string }[];
 
-// remove dynamicParams
 export const dynamicParams = false;
 
-// generate static params
 export const generateStaticParams: StaticParams = () => {
   const tags = getTaxonomy(blog_folder, "tags");
 

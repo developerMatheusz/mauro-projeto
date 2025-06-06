@@ -2,14 +2,14 @@
 
 import Logo from "@/components/Logo";
 import Social from "@/components/Social";
-import config from "@/config/config.json";
+//import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import social from "@/config/social.json";
-import { markdownify } from "@/lib/utils/textConverter";
+//import { markdownify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 
 const Footer = () => {
-  const { copyright } = config.params;
+  //const { copyright } = config.params;
 
   return (
     <footer className="bg-light dark:bg-darkmode-light">
@@ -32,11 +32,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="border-t border-border py-7 dark:border-darkmode-border">
+      {/*<div className="border-t border-border py-7 dark:border-darkmode-border">
         <div className="container text-center text-text-light dark:text-darkmode-text-light">
           <p dangerouslySetInnerHTML={markdownify(copyright)} />
         </div>
-      </div>
+      </div>*/}
     </footer>
   );
 };
