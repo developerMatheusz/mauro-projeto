@@ -9,6 +9,10 @@
       "url": "/about"
     },
     {
+      "name": "Como funciona",
+      "url": "/how-works"
+    },
+    {
       "name": "Páginas",
       "url": "",
       "hasChildren": true,
