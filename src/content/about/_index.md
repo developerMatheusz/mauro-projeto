@@ -34,7 +34,7 @@ Observação: Cabe ao candidato verificar o edital específico de seu concurso p
 
 Frente:
 
-![Exemplo de certificado](/images/certificate.webp)
+![Exemplo de certificado](/images/certificate.png)
 
 Verso:
 
