@@ -1,127 +1,39 @@
-import ImageFallback from "@/helpers/ImageFallback";
-import { getListPage } from "@/lib/contentParser";
-import { markdownify } from "@/lib/utils/textConverter";
-import CallToAction from "@/partials/CallToAction";
-import SeoMeta from "@/partials/SeoMeta";
-import Testimonials from "@/partials/Testimonials";
-import { Button, Feature } from "@/types";
+import Banner from "@/components/Banner";
+import Image from "next/image";
 import Link from "next/link";
-import { FaCheck } from "react-icons/fa";
 
 const Home = () => {
-  const homepage = getListPage("homepage/_index.md");
-  const testimonial = getListPage("sections/testimonial.md");
-  const callToAction = getListPage("sections/call-to-action.md");
-  const { frontmatter } = homepage;
-  const {
-    banner,
-    features,
-  }: {
-    banner: { title: string; image: string; content?: string; button?: Button };
-    features: Feature[];
-  } = frontmatter;
-
   return (
-    <>
-      <SeoMeta />
-      <section className="section pt-14">
-        <div className="container">
-          <div className="row justify-center">
-            <div className="lg:col-7 md:col-9 mb-8 text-center">
-              <h1
-                className="mb-4 text-h3 lg:text-h1 text-[#035373]"
-                dangerouslySetInnerHTML={markdownify(banner.title)}
-              />
-              <p
-                className="mb-8 text-[#0D0D0D]"
-                dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
-              />
-              {banner.button!.enable && (
-                <Link
-                  className="btn bg-[#035373] text-white"
-                  href={banner.button!.link}
-                  target={
-                    banner.button!.link.startsWith("http") ? "_blank" : "_self"
-                  }
-                  rel="noopener"
-                >
-                  {banner.button!.label}
-                </Link>
-              )}
-            </div>
-            {banner.image && (
-              <div className="col-12">
-                <ImageFallback
-                  src={banner.image}
-                  className="mx-auto"
-                  width="500"
-                  height="120"
-                  alt="banner image"
-                  priority
-                />
-              </div>
-            )}
+    <main className="pb-14">
+      <Banner />
+      <div className="mt-6 w-full md:max-w-[70%] max-w-[95%] mx-auto grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-6">
+        <div className="w-full flex flex-col gap-4">
+          <h2 className="text-3xl font-semibold text-center">Área de cursos</h2>
+          <div className="w-full border border-black/50 flex flex-col gap-2 rounded-md">
+            <Link href="/matricula/agente-de-portaria" className="text-lg text-blue-500 hover:underline p-2 border-b border-black/50">Agente de portaria</Link>
           </div>
         </div>
-      </section>
-
-      {features.map((feature, index: number) => (
-        <section
-          key={index}
-          className={`section-sm ${index % 2 === 0 && "bg-[#F2A950]"}`}
-        >
-          <div className="container">
-            <div className="row items-center justify-between">
-              <div
-                className={`mb:md-0 mb-6 md:col-5 ${
-                  index % 2 !== 0 && "md:order-2"
-                }`}
-              >
-                <ImageFallback
-                  src={feature.image}
-                  height={480}
-                  width={520}
-                  alt={feature.title}
-                />
+        <div className="w-full flex flex-col">
+          <h3 className="text-3xl font-bold">Cursos Online Gratuitos com Certificado</h3>
+          <p className="text-lg">A Academia do Conhecimento disponibiliza GRATUITAMENTE o cadastro, a matrícula, o material didático e a avaliação! Somente o Certificado é pago. Para saber como adquirir a certificação, <Link href="/certificado" className="text-blue-500 hover:underline">clique aqui.</Link></p>
+          <p className="text-lg mt-3">Nossos cursos livres são de Atualização e Capacitação. Estude conosco! Nossos Certificados são muito usados em A.A.C.C. (Atividades Acadêmicas Curriculares Complementares em faculdades), Prova de Títulos (consulte seu edital), capacitação profissional e enriquecimento de currículo.</p>
+          <p className="text-3xl font-bold mt-3">Cursos online gratuitos para você:</p>
+          <div className="w-full grid md:grid-cols-3 grid-cols-1 gap-4 mt-6">
+            <Link href="/matricula/agente-de-portaria" className="w-full flex flex-col gap-4 border border-black/50 rounded-md p-2">
+              <div className="w-full h-60 relative">
+                <Image src="/images/course/course-1.png" alt="Course 1" fill className="object-cover" />
+                <div className="absolute bottom-0 left-0 bg-white p-1">De 20 a 40 horas</div>
               </div>
-              <div
-                className={`md:col-7 lg:col-6 ${
-                  index % 2 !== 0 && "md:order-1"
-                }`}
-              >
-                <h2
-                  className="mb-4 text-[#035373]"
-                  dangerouslySetInnerHTML={markdownify(feature.title)}
-                />
-                <p
-                  className="mb-8 text-lg text-[#035373]"
-                  dangerouslySetInnerHTML={markdownify(feature.content)}
-                />
-                <ul>
-                  {feature.bulletpoints.map((bullet: string) => (
-                    <li className="relative mb-4 pl-6" key={bullet}>
-                      <FaCheck className={"absolute left-0 top-1.5 text-[#035373]"} />
-                      <span dangerouslySetInnerHTML={markdownify(bullet)} className="text-[#035373]" />
-                    </li>
-                  ))}
-                </ul>
-                {feature.button.enable && (
-                  <Link
-                    className="btn bg-[#035373] text-white mt-5"
-                    href={feature.button.link}
-                  >
-                    {feature.button.label}
-                  </Link>
-                )}
+              <div className="flex flex-col gap-1">
+                <div className="w-full text-center text-[#065473] font-semibold text-lg">Agente de portaria</div>
+                <div className="w-full text-center text-lg">Condomínios, Hospitais, Escolas e Empresas</div>
               </div>
-            </div>
+              <button className="w-full bg-[#065473] text-center text-white p-2 hover:bg-opacity-70">Matricule-se grátis</button>
+            </Link>
           </div>
-        </section>
-      ))}
-
-      <Testimonials data={testimonial} />
-      <CallToAction data={callToAction} />
-    </>
+        </div>
+      </div>
+    </main>
   );
 };
 
