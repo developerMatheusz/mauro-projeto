@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import AvaliacaoModal from './AvaliacaoModal';
@@ -8,8 +8,15 @@ const CursoModal = ({ nomeCurso, horas, slug }: { nomeCurso: string; horas: stri
   const [leuPDF, setLeuPDF] = useState(false);
   const [showAvaliacao, setShowAvaliacao] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
+
   const handleAbrirPDF = () => {
-    window.open('/visualizar-pdf/agente-de-portaria.pdf', '_blank');
+    window.open(slug === "atendente-comercial" ? "/visualizar-pdf/atendente-comercial.pdf" : "/visualizar-pdf/agente-de-portaria.pdf", '_blank');
     setLeuPDF(true);
   };
 
@@ -33,7 +40,7 @@ const CursoModal = ({ nomeCurso, horas, slug }: { nomeCurso: string; horas: stri
                 src={
                     slug === 'agente-de-portaria'
                     ? '/images/course/course-1.png'
-                    : '/images/course/course-1.png'
+                    : '/images/course/course-2.png'
                 }
                 alt="Banner"
                 fill
@@ -42,9 +49,7 @@ const CursoModal = ({ nomeCurso, horas, slug }: { nomeCurso: string; horas: stri
         </div>
         <div className="flex flex-col gap-2 w-full">
             <p className="text-lg">
-                O porteiro é o profissional responsável pelo controle de acesso de pessoas, veículos e correspondências em condomínios residenciais, prédios comerciais, instituições públicas e privadas. Atua como o primeiro ponto de contato de visitantes e moradores, sendo essencial para a segurança, organização e cordialidade do ambiente em que trabalha.<br/>
-                Além da vigilância e do atendimento, o porteiro também registra ocorrências, monitora câmeras de segurança, confere documentos, orienta visitantes, zela pelo cumprimento de regras internas e aciona os responsáveis em caso de emergência.<br/>
-                Mais do que um simples vigilante de portaria, o porteiro é um agente de confiança, que deve demonstrar pontualidade, ética, discrição, boa comunicação e atenção constante às suas atividades.
+                {slug === 'agente-de-portaria' ? "Objetivo geral de capacitar o aluno para atuar com eficiência e segurança como agente de portaria em diferentes tipos de instituições, compreendendo suas atribuições, postura profissional, atendimento ao público e procedimentos operacionais." : "Capacitar o aluno para atuar com excelência na função de atendente comercial em diversos segmentos do mercado, desenvolvendo habilidades de comunicação, atendimento ao cliente, postura profissional, organização de rotinas administrativas e técnicas de vendas, visando um atendimento eficiente, cordial e voltado à satisfação do cliente."}
             </p>
         </div>
       </div>

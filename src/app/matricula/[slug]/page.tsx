@@ -33,20 +33,22 @@ const MatriculaSlug = () => {
     setShowModal(true);
   };
 
+  console.log(slug)
+
   return (
     <main>
       <div className="mt-6 w-full lg:max-w-[70%] max-w-[95%] mx-auto">
         <h1 className="text-3xl font-bold">
-          Cursos Online Recepcionista de Hotel e Pousada
+          {slug == "atendente-comercial" ? "Curso Online Atendente Comercial" : "Cursos Online Agente de Portaria"}
         </h1>
 
         <div className="w-full mt-8 grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-6">
-          <div className="w-full h-64 relative">
+          <div className={`w-full ${slug === "atende-de-portaria" ? "h-64" : "h-80"} relative`}>
             <Image
               src={
                 slug === 'agente-de-portaria'
                   ? '/images/course/course-1.png'
-                  : '/images/course/course-1.png'
+                  : '/images/course/course-2.png'
               }
               alt="Banner"
               fill
@@ -56,7 +58,7 @@ const MatriculaSlug = () => {
           <div className="flex flex-col gap-2 w-full">
             <h2 className="text-2xl font-semibold">Matricule-se neste curso gratuitamente.</h2>
             <p className="text-lg">
-              Objetivo geral de capacitar o aluno para atuar com eficiência e segurança como agente de portaria em diferentes tipos de instituições, compreendendo suas atribuições, postura profissional, atendimento ao público e procedimentos operacionais.
+              {slug === 'agente-de-portaria' ? "Objetivo geral de capacitar o aluno para atuar com eficiência e segurança como agente de portaria em diferentes tipos de instituições, compreendendo suas atribuições, postura profissional, atendimento ao público e procedimentos operacionais." : "Capacitar o aluno para atuar com excelência na função de atendente comercial em diversos segmentos do mercado, desenvolvendo habilidades de comunicação, atendimento ao cliente, postura profissional, organização de rotinas administrativas e técnicas de vendas, visando um atendimento eficiente, cordial e voltado à satisfação do cliente."}
             </p>
           </div>
         </div>
@@ -127,7 +129,7 @@ const MatriculaSlug = () => {
       </div>
 
       {showModal && (
-        <CursoModal nomeCurso="Agente de Portaria" horas={formData.horas} slug={slug} />
+        <CursoModal nomeCurso={slug === "atendente-comercial" ? "Atendente Comercial" : "Agente de Portaria"} horas={formData.horas} slug={slug} />
       )}
     </main>
   );

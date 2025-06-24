@@ -11,6 +11,7 @@ const Home = () => {
           <h2 className="text-3xl font-semibold text-center">Área de cursos</h2>
           <div className="w-full border border-black/50 flex flex-col gap-2 rounded-md">
             <Link href="/matricula/agente-de-portaria" className="text-lg text-blue-500 hover:underline p-2 border-b border-black/50">Agente de portaria</Link>
+            <Link href="/matricula/atendente-comercial" className="text-lg text-blue-500 hover:underline p-2">Atendente comercial</Link>
           </div>
         </div>
         <div className="w-full flex flex-col">
@@ -27,6 +28,17 @@ const Home = () => {
               <div className="flex flex-col gap-1">
                 <div className="w-full text-center text-[#065473] font-semibold text-lg">Agente de portaria</div>
                 <div className="w-full text-center text-lg">Condomínios, Hospitais, Escolas e Empresas</div>
+              </div>
+              <button className="w-full bg-[#065473] text-center text-white p-2 hover:bg-opacity-70">Matricule-se grátis</button>
+            </Link>
+            <Link href="/matricula/atendente-comercial" className="w-full flex flex-col gap-4 border border-black/50 rounded-md p-2">
+              <div className="w-full h-60 relative">
+                <Image src="/images/course/course-2.png" alt="Course 1" fill className="object-cover" />
+                <div className="absolute bottom-0 left-0 bg-white p-1">De 20 a 40 horas</div>
+              </div>
+              <div className="flex flex-col gap-1">
+                <div className="w-full text-center text-[#065473] font-semibold text-lg">Atendente comercial</div>
+                <div className="w-full text-center text-lg">Compreender o papel e as responsabilidades</div>
               </div>
               <button className="w-full bg-[#065473] text-center text-white p-2 hover:bg-opacity-70">Matricule-se grátis</button>
             </Link>

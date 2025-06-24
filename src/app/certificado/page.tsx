@@ -48,6 +48,7 @@ const Certificado = () => {
           >
             Agente de portaria
           </Link>
+          <Link href="/matricula/atendente-comercial" className="text-lg text-blue-500 hover:underline p-2">Atendente comercial</Link>
         </div>
       </div>
 
