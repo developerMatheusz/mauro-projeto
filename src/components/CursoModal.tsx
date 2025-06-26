@@ -1,9 +1,21 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import AvaliacaoModal from './AvaliacaoModal';
+import AvaliacaoModal, { Pergunta } from './AvaliacaoModal';
 
-const CursoModal = ({ nomeCurso, horas, slug }: { nomeCurso: string; horas: string; slug: string; }) => {
+type CursoModalProps = {
+  nomeCurso: string;
+  horas: string;
+  slug: string;
+  curso: {
+    pdf: string;
+    coverImage: string;
+    description: string;
+    quiz: Pergunta[];
+  }
+};
+
+const CursoModal = ({ nomeCurso, horas, slug, curso }: CursoModalProps) => {
   const router = useRouter();
   const [leuPDF, setLeuPDF] = useState(false);
   const [showAvaliacao, setShowAvaliacao] = useState(false);
@@ -16,7 +28,7 @@ const CursoModal = ({ nomeCurso, horas, slug }: { nomeCurso: string; horas: stri
   }, []);
 
   const handleAbrirPDF = () => {
-    window.open(slug === "atendente-comercial" ? "/visualizar-pdf/atendente-comercial.pdf" : "/visualizar-pdf/agente-de-portaria.pdf", '_blank');
+    window.open(curso.pdf, '_blank');
     setLeuPDF(true);
   };
 
@@ -32,25 +44,21 @@ const CursoModal = ({ nomeCurso, horas, slug }: { nomeCurso: string; horas: stri
         </button>
       </div>
 
-      <div className="text-2xl font-medium text-[#F2A950] mb-4">Carga Horária de {horas} horas</div>
+      <div className="text-2xl font-medium text-[#F2A950] mb-4">
+        Carga Horária de {horas} horas
+      </div>
 
       <div className="w-full mt-8 grid md:grid-cols-[1fr_3fr] grid-cols-1 gap-6 mb-4">
         <div className="w-full h-60 relative">
-            <Image
-                src={
-                    slug === 'agente-de-portaria'
-                    ? '/images/course/course-1.png'
-                    : '/images/course/course-2.png'
-                }
-                alt="Banner"
-                fill
-                className="object-cover"
-            />
+          <Image
+            src={curso.coverImage}
+            alt={`Banner do curso ${nomeCurso}`}
+            fill
+            className="object-cover"
+          />
         </div>
         <div className="flex flex-col gap-2 w-full">
-            <p className="text-lg">
-                {slug === 'agente-de-portaria' ? "Objetivo geral de capacitar o aluno para atuar com eficiência e segurança como agente de portaria em diferentes tipos de instituições, compreendendo suas atribuições, postura profissional, atendimento ao público e procedimentos operacionais." : "Capacitar o aluno para atuar com excelência na função de atendente comercial em diversos segmentos do mercado, desenvolvendo habilidades de comunicação, atendimento ao cliente, postura profissional, organização de rotinas administrativas e técnicas de vendas, visando um atendimento eficiente, cordial e voltado à satisfação do cliente."}
-            </p>
+          <p className="text-lg">{curso.description}</p>
         </div>
       </div>
 
@@ -79,6 +87,7 @@ const CursoModal = ({ nomeCurso, horas, slug }: { nomeCurso: string; horas: stri
           nomeCurso={nomeCurso}
           slug={slug}
           onClose={() => setShowAvaliacao(false)}
+          quiz={curso.quiz}
         />
       )}
     </div>

@@ -4,18 +4,32 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import CursoModal from '@/components/CursoModal';
+import { courses } from '@/app/mockData';
 
 const MatriculaSlug = () => {
   const params = useParams();
-  const slug = typeof params.slug === 'string' ? params.slug : Array.isArray(params.slug) ? params.slug[0] : '';
-
+  const slug = typeof params.slug === 'string'
+    ? params.slug
+    : Array.isArray(params.slug) ? params.slug[0] : '';
   const [formData, setFormData] = useState({
     horas: '',
     name: '',
     email: '',
   });
-
   const [showModal, setShowModal] = useState(false);
+
+  const todosCursos = Object.values(courses).flat();
+
+  const curso = todosCursos.find(c => c.slug === slug);
+
+  if (!curso) {
+    return (
+      <main className="w-full h-64 lg:max-w-[70%] mx-auto max-w-[95%] flex items-center justify-center flex-col text-center">
+        <h1 className="text-3xl font-bold">Curso não encontrado</h1>
+        <p>Verifique o link e tente novamente.</p>
+      </main>
+    );
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -33,33 +47,23 @@ const MatriculaSlug = () => {
     setShowModal(true);
   };
 
-  console.log(slug)
-
   return (
     <main>
       <div className="mt-6 w-full lg:max-w-[70%] max-w-[95%] mx-auto">
-        <h1 className="text-3xl font-bold">
-          {slug == "atendente-comercial" ? "Curso Online Atendente Comercial" : "Cursos Online Agente de Portaria"}
-        </h1>
+        <h1 className="text-3xl font-bold">{curso.title}</h1>
 
         <div className="w-full mt-8 grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-6">
-          <div className={`w-full ${slug === "atende-de-portaria" ? "h-64" : "h-80"} relative`}>
+          <div className="w-full h-80 relative">
             <Image
-              src={
-                slug === 'agente-de-portaria'
-                  ? '/images/course/course-1.png'
-                  : '/images/course/course-2.png'
-              }
-              alt="Banner"
+              src={curso.coverImage}
+              alt={`Banner do curso ${curso.title}`}
               fill
               className="object-cover"
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
             <h2 className="text-2xl font-semibold">Matricule-se neste curso gratuitamente.</h2>
-            <p className="text-lg">
-              {slug === 'agente-de-portaria' ? "Objetivo geral de capacitar o aluno para atuar com eficiência e segurança como agente de portaria em diferentes tipos de instituições, compreendendo suas atribuições, postura profissional, atendimento ao público e procedimentos operacionais." : "Capacitar o aluno para atuar com excelência na função de atendente comercial em diversos segmentos do mercado, desenvolvendo habilidades de comunicação, atendimento ao cliente, postura profissional, organização de rotinas administrativas e técnicas de vendas, visando um atendimento eficiente, cordial e voltado à satisfação do cliente."}
-            </p>
+            <p className="text-lg">{curso.description}</p>
           </div>
         </div>
 
@@ -129,7 +133,12 @@ const MatriculaSlug = () => {
       </div>
 
       {showModal && (
-        <CursoModal nomeCurso={slug === "atendente-comercial" ? "Atendente Comercial" : "Agente de Portaria"} horas={formData.horas} slug={slug} />
+        <CursoModal
+          nomeCurso={curso.title}
+          horas={formData.horas}
+          slug={curso.slug}
+          curso={curso}
+        />
       )}
     </main>
   );

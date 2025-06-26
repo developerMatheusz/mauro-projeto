@@ -1,19 +1,28 @@
 import Link from "next/link";
+import { courses } from "../mockData";
 
 const QuemSomos = () => {
   return (
     <main className="pb-14 mt-6 w-full md:max-w-[70%] max-w-[95%] mx-auto grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-6">
       <div className="w-full flex flex-col gap-4">
         <h2 className="text-3xl font-semibold text-center">Área de cursos</h2>
-        <div className="w-full border border-black/50 flex flex-col gap-2 rounded-md">
-          <Link
-            href="/matricula/agente-de-portaria"
-            className="text-lg text-blue-500 hover:underline p-2 border-b border-black/50"
-          >
-            Agente de portaria
-          </Link>
-          <Link href="/matricula/atendente-comercial" className="text-lg text-blue-500 hover:underline p-2">Atendente comercial</Link>
-        </div>
+        {Object.entries(courses).map(([categoria, listaCursos]) => (
+          <section key={categoria} className="mb-8">
+            <h3 className="text-xl font-bold mb-2 text-left">{categoria}</h3>
+
+            <div className="w-full border border-black/50 flex flex-col gap-2 rounded-md">
+              {listaCursos.map(({ slug, title }) => (
+                <Link
+                  key={slug}
+                  href={`/matricula/${slug}`}
+                  className="text-lg text-blue-500 hover:underline p-2 border-b border-black/50 last:border-b-0"
+                >
+                  {title}
+                </Link>
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
 
       <div className="space-y-4">

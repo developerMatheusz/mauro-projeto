@@ -24,7 +24,7 @@ const Footer = () => {
                         <Link href="/quem-somos" className="text-lg hover:underline">Quem somos</Link>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <strong className="text-xl">Cursos</strong>
+                        <strong className="text-xl">Cursos em Destaque</strong>
                         <Link href="/matricula/agente-de-portaria" className="text-lg hover:underline">Agente de portaria</Link>
                         <Link href="/matricula/atendente-comercial" className="text-lg hover:underline">Atendente comercial</Link>
                     </div>
