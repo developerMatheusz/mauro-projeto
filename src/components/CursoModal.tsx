@@ -13,9 +13,11 @@ type CursoModalProps = {
     description: string;
     quiz: Pergunta[];
   }
+  cpf: string;
+  name: string;
 };
 
-const CursoModal = ({ nomeCurso, horas, slug, curso }: CursoModalProps) => {
+const CursoModal = ({ nomeCurso, horas, slug, curso, cpf, name }: CursoModalProps) => {
   const router = useRouter();
   const [leuPDF, setLeuPDF] = useState(false);
   const [showAvaliacao, setShowAvaliacao] = useState(false);
@@ -86,8 +88,11 @@ const CursoModal = ({ nomeCurso, horas, slug, curso }: CursoModalProps) => {
         <AvaliacaoModal
           nomeCurso={nomeCurso}
           slug={slug}
+          horas={horas}
           onClose={() => setShowAvaliacao(false)}
           quiz={curso.quiz}
+          cpf={cpf}
+          name={name}
         />
       )}
     </div>

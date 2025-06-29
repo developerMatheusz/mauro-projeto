@@ -17,10 +17,11 @@ const Navbar = () => {
                     </div>
                 </Link>
             </div>
-            <div className="w-full bg-[#065473] p-2 lg:text-lg text-base uppercase flex items-center justify-center gap-4 text-white">
+            <div className="w-full bg-[#065473] p-2 lg:text-lg text-base uppercase flex items-center flex-wrap justify-center gap-4 text-white">
                 <Link href="/" className=" hover:text-[#F2A950] transition duration-300">Início</Link>
                 <Link href="/certificado" className=" hover:text-[#F2A950] transition duration-300">Certificados</Link>
                 <Link href="/quem-somos" className=" hover:text-[#F2A950] transition duration-300">Quem somos</Link>
+                <Link href="/validar-certificado" className=" hover:text-[#F2A950] transition duration-300">Validar certificado</Link>
             </div>
         </nav>
     )

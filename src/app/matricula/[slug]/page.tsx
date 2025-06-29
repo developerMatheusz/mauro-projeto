@@ -5,6 +5,29 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import CursoModal from '@/components/CursoModal';
 import { courses } from '@/app/mockData';
+import MaskedInput from 'react-text-mask';
+
+function CPFInput({ value, onChange, id, required }: any) {
+  const cpfMask = [
+    /\d/, /\d/, /\d/, '.', 
+    /\d/, /\d/, /\d/, '.', 
+    /\d/, /\d/, /\d/, '-', 
+    /\d/, /\d/
+  ];
+
+  return (
+    <MaskedInput
+      mask={cpfMask}
+      id={id}
+      className="p-2 rounded border border-gray-300"
+      placeholder="000.000.000-00"
+      guide={false}
+      value={value}
+      onChange={onChange}
+      required={required}
+    />
+  );
+}
 
 const MatriculaSlug = () => {
   const params = useParams();
@@ -15,6 +38,7 @@ const MatriculaSlug = () => {
     horas: '',
     name: '',
     email: '',
+    cpf: '',
   });
   const [showModal, setShowModal] = useState(false);
 
@@ -32,7 +56,14 @@ const MatriculaSlug = () => {
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
+    const { id, value } = e.target;
+
+    if (id === 'cpf') {
+      const onlyNumbers = value.replace(/\D/g, '');
+      setFormData(prev => ({ ...prev, [id]: onlyNumbers }));
+    } else {
+      setFormData(prev => ({ ...prev, [id]: value }));
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -98,7 +129,7 @@ const MatriculaSlug = () => {
               value={formData.name}
               onChange={handleChange}
               className="p-2 rounded border border-gray-300"
-              placeholder="Digite seu nome completo"
+              placeholder="Digite seu nome (apenas nome/sobrenome)"
             />
           </div>
 
@@ -112,6 +143,15 @@ const MatriculaSlug = () => {
               required
               className="p-2 rounded border border-gray-300"
               placeholder="Digite seu email"
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <label className="font-medium" htmlFor="cpf">CPF *</label>
+            <CPFInput
+              value={formData.cpf}
+              onChange={handleChange}
+              id="cpf"
+              required
             />
           </div>
 
@@ -135,7 +175,9 @@ const MatriculaSlug = () => {
       {showModal && (
         <CursoModal
           nomeCurso={curso.title}
+          name={formData.name}
           horas={formData.horas}
+          cpf={formData.cpf}
           slug={curso.slug}
           curso={curso}
         />

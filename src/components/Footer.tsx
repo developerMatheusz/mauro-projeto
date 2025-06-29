@@ -25,8 +25,8 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-col gap-2">
                         <strong className="text-xl">Cursos em Destaque</strong>
-                        <Link href="/matricula/agente-de-portaria" className="text-lg hover:underline">Agente de portaria</Link>
-                        <Link href="/matricula/atendente-comercial" className="text-lg hover:underline">Atendente comercial</Link>
+                        <Link href="/matricula/administracao-financeira-pessoal-e-orcamento-domestico" className="text-lg hover:underline">Administração financeira pessoal e orçamento doméstico</Link>
+                        <Link href="/matricula/administracao-de-conflitos-no-ambiente-de-trabalho" className="text-lg hover:underline">Administração de conflitos no ambiente de trabalho</Link>
                     </div>
                 </div>
             </footer>

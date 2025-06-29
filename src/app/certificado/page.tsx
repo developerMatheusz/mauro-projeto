@@ -9,12 +9,12 @@ const faqData = [
   {
     pergunta: "Como posso obter o certificado?",
     resposta:
-      "Após concluir o curso e a avaliação, você poderá adquirir o certificado mediante pagamento. Clique no link acima para mais informações.",
+      "Após concluir o curso e a avaliação, você poderá adquirir o certificado mediante pagamento.",
   },
   {
     pergunta: "Quanto custa o certificado?",
     resposta:
-      "O valor do certificado pode variar conforme o curso. Consulte a página de certificação para detalhes atualizados.",
+      "O certificado custa R$29,90 para qualquer curso.",
   },
   {
     pergunta: "Posso usar o certificado para comprovar experiência profissional?",
